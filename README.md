@@ -48,12 +48,14 @@ yarn install
 ```
     
 ## Environment Variables
- - [Client Side](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+ - [Client Side]()
+
 To run this project, you will need to add the following environment variables to your Client side .env file
 
 `VITE_REACT_APP_SERVER_URL`
 
- - [Server Side](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+ - [Server Side]()
+
 To run this project, you will need to add the following environment variables to your Server side .env file
 
 `PORT`
@@ -64,7 +66,7 @@ To run this project, you will need to add the following environment variables to
 
 `JWT_SECRET`
 
-Node mailer
+Add node mailer environment variables
 
 `SMTP_HOST`
 
@@ -75,6 +77,7 @@ Node mailer
 `SMTP_USER`
 
 `SMTP_PASS`
+
 ## Run Locally
 
 1.Open new terminal and go to the CLIENT directory
