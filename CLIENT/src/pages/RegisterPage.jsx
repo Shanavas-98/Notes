@@ -61,7 +61,6 @@ function RegisterPage() {
             return acc;
           }, {}));
         } else {
-          console.log("register response", data);
           toast.success(data.message, {
             position: "top-center",
           });

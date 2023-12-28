@@ -17,7 +17,6 @@ const sendVerifyLink = async (email) => {
         const result = await sendEmail(email, subject, text);
         return result;
     } catch (error) {
-        console.log("send verifylink",error);
         return false;
     }
 };
@@ -44,7 +43,6 @@ const register = async (req, res) => {
         }
         res.status(201).json({ success: linkSend, message: "verification link send to email" });
     } catch (error) {
-        console.log("register", error);
         res.status(error.status || 500).json(error);
     }
 };
@@ -57,7 +55,6 @@ const resendLink = async (req, res) => {
         }
         res.status(200).json({ success: linkSend, message: "verification link send to email" });
     } catch (error) {
-        console.log("resend link",error);
         res.status(error.status || 500).json(error);
     }
 };
@@ -65,12 +62,10 @@ const resendLink = async (req, res) => {
 const verifyEmail = async (req, res) => {
     try {
         const token = req.params.token;
-        console.log("token", token);
         if (!token || token === "null") {
             throw { status: 401, message: "Verification token required" };
         }
         const decoded = verifyToken(token);
-        console.log("decoded", decoded);
         const now = Math.floor(Date.now() / 1000);
         if (decoded.exp !== undefined && now > decoded.exp) {
             throw { status: 403, message: "Verification link expired" };
@@ -100,7 +95,6 @@ const authUser = async (req, res) => {
         }
         res.status(200).json({ id: user._id, name: user.name, email: user.email, token: token });
     } catch (error) {
-        console.log("auth user", error.name);
         if(error.name==="TokenExpiredError"){
             res.status(403).json(error);
         }else{
@@ -134,7 +128,6 @@ const login = async (req, res) => {
         const userData = {id: user._id, name: user.name, email: user.email};
         res.status(200).json({ success:true, userData, token });
     } catch (error) {
-        console.log("login", error);
         // res.status(error.status || 500).json(error);
         res.json({success:false, message:error.message});
     }

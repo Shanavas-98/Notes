@@ -34,7 +34,6 @@ function LoginPage() {
     onSubmit: async (formData) => {
       try {
         const {data} = await userInstance.post("/login", formData);
-        console.log("login response", data);
         if (data?.validationErrors) {
           setErrors(data?.validationErrors?.reduce((acc, error) => {
             const existingError = acc[error.path];
@@ -55,7 +54,6 @@ function LoginPage() {
           });
         }
       } catch (error) {
-        console.log("login error", error);
         toast.error(error.message, {
           position: "top-center",
         });

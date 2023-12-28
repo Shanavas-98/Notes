@@ -24,7 +24,6 @@ userInstance.interceptors.request.use(
 userInstance.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.log("interceptor error", error);
     if (error.response.data.name === "TokenExpiredError") {
       // JWT token is expired, perform user logout
       localStorage.removeItem("userToken");

@@ -12,7 +12,6 @@ const getUserNotes = async (req, res) => {
         }
         res.status(200).json(notes);
     } catch (error) {
-        console.log("user notes", error);
         res.status(error.status || 500).json(error);
     }
 };
@@ -26,7 +25,6 @@ const getNote = async (req, res) => {
         }
         res.status(200).json(note);
     } catch (error) {
-        console.log("get note", error);
         res.status(error.status || 500).json(error);
     }
 };
@@ -45,7 +43,6 @@ const addNote = async (req, res) => {
         });
         res.status(201).json({ success: true, message: "new note created" });
     } catch (error) {
-        console.log("add note", error);
         res.status(error.status || 500).json(error);
     }
 };
@@ -65,7 +62,6 @@ const editNote = async (req, res) => {
         });
         res.status(200).json({ success: true, message: "note edited successfully" });
     } catch (error) {
-        console.log("edit note", error);
         res.status(error.status || 500).json(error);
     }
 };
@@ -76,7 +72,6 @@ const deleteNote = async (req, res) => {
         await NoteModel.findByIdAndDelete(noteId);
         res.status(200).json({ success: true, message: "note deleted successfully" });
     } catch (error) {
-        console.log("edit note", error);
         res.status(error.status || 500).json(error);
     }
 };

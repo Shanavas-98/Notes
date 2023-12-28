@@ -28,7 +28,9 @@ function NoteFormPage() {
                 if (noteId) {
                     //update note api
                     const { data } = await userInstance.put(`/edit-note/${noteId}`, formData);
-                    console.log("edit note", data);
+                    toast.success(data.message, {
+                        position: "top-center",
+                    });
                 } else {
                     //add note api
                     const { data } = await userInstance.post("/add-note", formData);
@@ -36,7 +38,6 @@ function NoteFormPage() {
                         toast.success(data.message, {
                             position: "top-center",
                         });
-                        console.log("add note", data);
                     }else{
                         throw Error(data.message);
                     }

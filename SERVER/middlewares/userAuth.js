@@ -19,7 +19,6 @@ const userAuth = async (req, res, next) => {
         req.userId = user?._id.toString();
         next();
     } catch (error) {
-        console.log("user auth middleware",error.name);
         if(error.name==="TokenExpiredError"){
             res.status(403).json(error);
         }else{
