@@ -43,7 +43,8 @@ const register = async (req, res) => {
         }
         res.status(201).json({ success: linkSend, message: "verification link send to email" });
     } catch (error) {
-        res.status(error.status || 500).json(error);
+        // res.status(error.status || 500).json(error);
+        res.json({success:false, message:error.message});
     }
 };
 
