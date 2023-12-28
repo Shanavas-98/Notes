@@ -20,18 +20,20 @@ function EmailVerification() {
         verifyEmail(token);
     }, [token]);
     return (
-        <div className="flex flex-col gap-2">
-            <h1 className="text-xl">EmailVerification</h1>
-            {message &&
-                <p>{message}</p>
-            }
-            {success &&
-                <NavLink
-                    to="/login"
-                    className="bg-blue-500 cursor-pointer border border-blue-500 text-white max-w-24 text-center py-2 rounded-xl"
-                >
-                    Login
-                </NavLink>}
+        <div className="flex items-center justify-center h-screen">
+            <div className="text-center">
+                <h1 className="text-2xl font-bold text-gray-700">Email Verification</h1>
+                {message &&
+                    <p className="text-lg font-semibold text-gray-500">{message}</p>
+                }
+                {success &&
+                    <NavLink
+                        to="/login"
+                        className="bg-blue-500 cursor-pointer border border-blue-500 text-white max-w-24 text-center py-2 rounded-xl"
+                    >
+                        Login
+                    </NavLink>}
+            </div>
         </div>
     );
 }
