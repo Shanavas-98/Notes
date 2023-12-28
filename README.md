@@ -14,7 +14,7 @@ Email verification link send using Nodemailer.
 
 ## Installation
 
-Make sure you have Node.js and Yarn installed on your machine.
+Make sure you have Node.js, MongoDB Compass and Yarn installed on your machine.
 
 1.Clone the repository:
 
@@ -100,7 +100,7 @@ Add node mailer environment variables
 4.Run server side
 
 ```bash
-  nodemon start
+  npm start
 ```
 5.Now open any browser and enter url
 
