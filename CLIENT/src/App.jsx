@@ -12,6 +12,7 @@ import NoteFormPage from "./pages/NoteFormPage";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import EmailVerification from "./pages/EmailVerification";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="notes/edit/:noteId" element={<NoteFormPage />} />
           </Route>
         </Route>
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
       <ToastContainer />
     </>

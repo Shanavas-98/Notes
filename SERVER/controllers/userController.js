@@ -94,12 +94,15 @@ const authUser = async (req, res) => {
         if (!user) {
             throw { status: 404, message: "User not found" };
         }
-        res.status(200).json({ id: user._id, name: user.name, email: user.email, token: token });
+        // res.status(200).json({ id: user._id, name: user.name, email: user.email, token: token });
+        const userData = {id: user._id, name: user.name, email: user.email};
+        res.status(200).json({ success:true, userData, token });
     } catch (error) {
         if(error.name==="TokenExpiredError"){
             res.status(403).json(error);
         }else{
-            res.status(error.status||500).json(error);
+            // res.status(error.status||500).json(error);
+            res.json({success:false, message:error.message});
         }
     }
 };

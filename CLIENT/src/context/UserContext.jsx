@@ -11,8 +11,13 @@ import userInstance from "../api/userInstance";
         async function fetchUser(){
             try {
                 const {data} = await userInstance.get("/auth-user");
-                localStorage.setItem("userToken", data.token);
-                setUser(data);
+                if(data?.success){
+                    localStorage.setItem("userToken", data.token);
+                    setUser(data.userData);
+                }else{
+                    localStorage.removeItem("userToken");
+                    setUser(null);
+                }
             } catch (error) {
                 console.error(error);
             }

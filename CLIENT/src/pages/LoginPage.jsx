@@ -49,6 +49,8 @@ function LoginPage() {
           localStorage.setItem("userToken", data.token);
           setUser(data?.userData);
         }else{
+          localStorage.removeItem("userToken");
+          setUser(null);
           toast.error(data?.message, {
             position: "top-center",
           });
