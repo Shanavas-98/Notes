@@ -30,10 +30,18 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
+
+// Serve React app's static files
+app.use(express.static(path.join(__dirname, "dist")));
 
 //routes
 app.use("/api", userRouter);
+
+// Handle React app's route
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
 
 //server
 app.listen(process.env.PORT, (error)=>{

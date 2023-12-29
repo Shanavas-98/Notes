@@ -11,6 +11,7 @@ import userInstance from "../api/userInstance";
         async function fetchUser(){
             try {
                 const {data} = await userInstance.get("/auth-user");
+                console.log("auth response",data);
                 if(data?.success){
                     localStorage.setItem("userToken", data.token);
                     setUser(data.userData);

@@ -23,6 +23,7 @@ const sendEmail = async ( email, subject, text) => {
         await mailTransporter.sendMail(message);
         return true;
     } catch (error) {
+        console.log("email sending", error);
         return false;
     }
 };

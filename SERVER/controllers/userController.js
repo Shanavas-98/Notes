@@ -17,6 +17,7 @@ const sendVerifyLink = async (email) => {
         const result = await sendEmail(email, subject, text);
         return result;
     } catch (error) {
+        console.log("send verify link",error);
         return false;
     }
 };
@@ -44,6 +45,7 @@ const register = async (req, res) => {
         res.status(201).json({ success: linkSend, message: "verification link send to email" });
     } catch (error) {
         // res.status(error.status || 500).json(error);
+        console.log("register",error);
         res.json({success:false, message:error.message});
     }
 };
@@ -132,6 +134,7 @@ const login = async (req, res) => {
         const userData = {id: user._id, name: user.name, email: user.email};
         res.status(200).json({ success:true, userData, token });
     } catch (error) {
+        console.log("login",error);
         // res.status(error.status || 500).json(error);
         res.json({success:false, message:error.message});
     }

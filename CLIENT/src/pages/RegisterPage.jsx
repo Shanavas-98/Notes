@@ -60,11 +60,16 @@ function RegisterPage() {
             }
             return acc;
           }, {}));
-        } else {
+        }
+        if(data?.success){
           toast.success(data.message, {
             position: "top-center",
           });
           navigate("/login");
+        }else{
+          toast.error(data?.message, {
+            position: "top-center",
+          });
         }
       } catch (error) {
         toast.error(error.message, {
